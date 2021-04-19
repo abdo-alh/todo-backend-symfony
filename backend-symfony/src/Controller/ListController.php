@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Task;
 use App\Entity\TaskList;
+use App\Entity\Preference;
 use App\Repository\TaskRepository;
 use App\Repository\TaskListRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -64,7 +65,10 @@ class ListController extends AbstractFOSRestController
         $title = $paramFetcher->get('title');
         if ($title) {
             $list = new TaskList();
+            $preferences = new Preference();
 
+            $preferences->setList($list);
+            $list->setPreferences($preferences);
             $list->setTitle($title);
 
             $this->entityManager->persist($list);

@@ -1,5 +1,8 @@
 api_login_check:
     path: /api/login_check
+gesdinet_jwt_refresh_token:
+    path: /api/token/refresh
+    controller: gesdinet.jwtrefreshtoken::refresh
 lists:
     type: rest
     resource: App\Controller\ListController
@@ -12,3 +15,7 @@ notes:
     type: rest
     resource: App\Controller\NoteController
     prefix: api
+preferences:
+    type      : rest
+    resource  : App\Controller\PreferenceController
+    prefix    : api
